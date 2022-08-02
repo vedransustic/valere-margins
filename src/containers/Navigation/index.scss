@@ -1,0 +1,74 @@
+@use '../../constants/variables' as v;
+
+.navigation {
+	height: v.$nav-height;
+	width: 100vw;
+	background-color: v.$bgcolor;
+	position: fixed;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	&__menu {
+		margin: auto;
+		flex: 1;
+
+		&__items {
+			margin-right: v.$space_from_edge;
+			display: flex;
+			justify-content: space-evenly;
+			list-style: none;
+			align-items: center;
+
+			li {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: v.$white;
+				flex: 1;
+				font-size: large;
+				cursor: pointer;
+			}
+			li.search-li {
+				flex: 3;
+
+				.search-container {
+					display: flex;
+					height: 40px;
+					width: 100%;
+
+					img {
+						flex: 1;
+						height: inherit;
+						padding: 8px;
+						background-color: rgba(v.$light-blue, 0.2);
+						border-top-left-radius: v.$button-radius;
+						border-bottom-left-radius: v.$button-radius;
+					}
+
+					input {
+						flex: 9;
+						height: inherit;
+						font-size: large;
+						color: v.$white;
+						background-color: rgba(v.$light-blue, 0.2);
+						outline: none;
+						border: none;
+						border-top-right-radius: v.$button-radius;
+						border-bottom-right-radius: v.$button-radius;
+					}
+				}
+			}
+
+			li > .signup-button {
+				background-color: rgba(v.$light-blue, 0.2);
+				padding: 0.4rem 1rem;
+				border-radius: v.$button-radius;
+				border: 1px solid rgba(v.$white, 0.2);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1220px) {
+}

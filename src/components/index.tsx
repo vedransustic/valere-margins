@@ -1,4 +1,6 @@
 import Logo from './Logo';
-import Hero from './Hero';
+import DivideContent from './DivideContent';
+import Image from './Image';
+import Button from './Button';
 
-export { Logo, Hero };
+export { DivideContent, Logo, Image, Button };

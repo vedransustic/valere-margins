@@ -1,5 +1,24 @@
+@use './constants/variables' as v;
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App {
+	position: relative;
+	min-height: 100vh;
+	background-image: url('./assets/img/bgimg.png');
+	background-repeat: no-repeat;
+	background-color: v.$black;
+	.app-content {
+		position: absolute;
+		top: v.$nav-height;
+	}
+
+	.footer {
+		position: absolute;
+	}
 }

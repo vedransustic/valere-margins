@@ -1,0 +1,9 @@
+@use '../../constants/variables' as v;
+
+.logo {
+	flex: 1;
+	img {
+		margin-left: v.$space_from_edge;
+		cursor: pointer;
+	}
+}

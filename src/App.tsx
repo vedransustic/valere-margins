@@ -1,16 +1,25 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
+import Footer from './components/Footer';
+import { Navigation } from './containers';
 import { Home, MovieDetails, MovieDiscovery, Error } from './pages';
 
 function App() {
 	return (
 		<div className='App'>
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/movies/discover' element={<MovieDiscovery />} />
-				<Route path='/movies/:id' element={<MovieDetails />} />
-				<Route path='*' element={<Error />} />
-			</Routes>
+			<Navigation />
+			<main className='app-content'>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route
+						path='/movies/discover'
+						element={<MovieDiscovery />}
+					/>
+					<Route path='/movies/:id' element={<MovieDetails />} />
+					<Route path='*' element={<Error />} />
+				</Routes>
+			</main>
+			<Footer />
 		</div>
 	);
 }

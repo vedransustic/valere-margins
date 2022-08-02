@@ -1,0 +1,11 @@
+@use '../../constants/variables' as v;
+
+.signin {
+	border: 1px solid v.$gray;
+	color: v.$white;
+	background-color: rgba(v.$light-gray, 0.25);
+	padding: 0.4rem 1rem;
+	border-radius: v.$button-radius;
+	outline: none;
+	cursor: pointer;
+}

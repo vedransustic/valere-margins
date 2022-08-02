@@ -1,16 +1,11 @@
-import React from 'react';
 import './index.scss';
+import { LogoImg } from '../../assets/img';
+import { Image } from '../';
 
 const Logo = () => {
 	return (
-		<div>
-			<div />
-			<h2>
-				<span>
-					<span>m</span>argins
-				</span>
-				<span>watch</span>
-			</h2>
+		<div className='logo'>
+			<Image url={LogoImg} width={400} height={60} />
 		</div>
 	);
 };

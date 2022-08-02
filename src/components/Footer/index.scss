@@ -1,0 +1,29 @@
+@use '../../constants/variables' as v;
+
+footer {
+	width: 100vw;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: space-around;
+	background-color: v.$bgcolor;
+
+	.footer-content {
+		display: flex;
+		justify-content: space-around;
+		width: 60vw;
+		padding: 10px 0;
+
+		.copyright {
+			flex: 4;
+			color: v.$white;
+			font-size: large;
+			font-weight: 200;
+			justify-content: center;
+		}
+
+		.images {
+			flex: 2;
+		}
+	}
+}
