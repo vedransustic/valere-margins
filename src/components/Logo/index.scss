@@ -7,3 +7,11 @@
 		cursor: pointer;
 	}
 }
+
+@media screen and (max-width: 1200px) {
+	.logo {
+		img {
+			margin-left: 0;
+		}
+	}
+}

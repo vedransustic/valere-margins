@@ -10,12 +10,11 @@ footer {
 
 	.footer-content {
 		display: flex;
-		justify-content: space-around;
 		width: 60vw;
 		padding: 10px 0;
 
 		.copyright {
-			flex: 4;
+			flex: 9;
 			color: v.$white;
 			font-size: large;
 			font-weight: 200;
@@ -23,7 +22,44 @@ footer {
 		}
 
 		.images {
-			flex: 2;
+			flex: 3;
+		}
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+	footer {
+		.footer-content {
+			width: 80vw;
+			padding: 10px 0;
+
+			.copyright {
+				flex: 3;
+				color: v.$white;
+				font-size: normal;
+			}
+
+			.images {
+				flex: 1;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	footer {
+		.footer-content {
+			display: flex;
+			width: 90vw;
+			padding: 5px 0;
+
+			.copyright {
+				font-size: small;
+			}
+
+			.images {
+				flex: 1;
+			}
 		}
 	}
 }

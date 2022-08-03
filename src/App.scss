@@ -13,12 +13,9 @@
 	background-image: url('./assets/img/bgimg.png');
 	background-repeat: no-repeat;
 	background-color: v.$black;
+
 	.app-content {
 		position: absolute;
 		top: v.$nav-height;
-	}
-
-	.footer {
-		position: absolute;
 	}
 }

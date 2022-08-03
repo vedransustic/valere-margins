@@ -12,13 +12,16 @@ const Navigation = () => {
 					<li>Najgledanije</li>
 					<li className='search-li'>
 						<div className='search-container'>
-							<Image url={SearchImg} width={24} height={24} />
+							<Image
+								url={SearchImg}
+								width={'24px'}
+								height={'24px'}
+								alt='search_glass'
+							/>
 							<input type='text' placeholder='Pretrazi' />
 						</div>
 					</li>
-					<li>
-						<div className='signup-button'> Prijava </div>
-					</li>
+					<li className='signup-button'>Prijava</li>
 				</ul>
 			</div>
 		</nav>

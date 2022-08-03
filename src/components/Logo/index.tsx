@@ -5,7 +5,7 @@ import { Image } from '../';
 const Logo = () => {
 	return (
 		<div className='logo'>
-			<Image url={LogoImg} width={400} height={60} />
+			<Image url={LogoImg} />
 		</div>
 	);
 };

@@ -13,8 +13,8 @@ const Footer = () => {
 					owner. Impresum · Politika privatnosti
 				</h2>
 				<div className='images'>
-					<Image url={EU1} width={160} height={40} />
-					<Image url={EU2} width={120} height={40} />
+					<Image url={EU1} width={'110px'} height={'auto'} />
+					<Image url={EU2} width={'80px'} height={'auto'} />
 				</div>
 			</div>
 		</footer>

@@ -10,7 +10,7 @@ function App() {
 			<Navigation />
 			<main className='app-content'>
 				<Routes>
-					<Route path='/' element={<Home />} />
+					<Route index element={<Home />} />
 					<Route
 						path='/movies/discover'
 						element={<MovieDiscovery />}

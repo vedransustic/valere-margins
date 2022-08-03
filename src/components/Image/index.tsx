@@ -1,20 +1,14 @@
 import React from 'react';
+import { propType } from './types';
 
-type propType = {
-	width: number;
-	height: number;
-	url: string;
+const Image: React.FC<propType> = ({ width, height, url, alt }) => {
+	return <img src={url} width={`${width}`} height={`${height}`} alt={alt} />;
 };
 
-const Image: React.FC<propType> = ({ width, height, url }) => {
-	return (
-		<img
-			src={url}
-			width={`${width}px`}
-			height={`${height}px`}
-			alt='image_404'
-		/>
-	);
+Image.defaultProps = {
+	width: 'auto',
+	height: 'auto',
+	alt: 'image_404',
 };
 
 export default Image;
