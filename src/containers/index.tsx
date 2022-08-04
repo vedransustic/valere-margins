@@ -1,3 +1,4 @@
 import Navigation from './Navigation';
+import Media from './Media';
 
-export { Navigation };
+export { Navigation, Media };

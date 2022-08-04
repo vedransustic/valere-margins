@@ -1,0 +1,21 @@
+@use '../../constants/variables' as v;
+
+.subtitle {
+	font-size: large;
+	color: v.$yellow;
+	text-transform: uppercase;
+	-webkit-text-stroke: 1px v.$black;
+	text-shadow: rgba(v.$yellow, 0.5) -2px 5px 5px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1281px) {
+	.subtitle {
+		font-size: 1.4rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.subtitle {
+		font-size: 1rem;
+	}
+}

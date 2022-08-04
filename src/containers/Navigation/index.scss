@@ -3,11 +3,16 @@
 .navigation {
 	height: v.$nav-height;
 	width: 100vw;
-	background-color: v.$bgcolor;
+	background: v.$black;
 	position: fixed;
+	top: 0;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+
+	.position_logo {
+		padding-left: 8rem;
+	}
 
 	&__menu {
 		margin: auto;
@@ -81,6 +86,10 @@
 		flex-direction: column;
 		justify-content: center;
 
+		.position_logo {
+			padding-left: 0;
+		}
+
 		&__menu {
 			width: 96vw;
 
@@ -100,6 +109,10 @@
 	.navigation {
 		height: v.$nav-height-mobile;
 		flex-direction: column;
+
+		.position_logo {
+			padding-left: 0;
+		}
 
 		&__menu {
 			flex: 1;

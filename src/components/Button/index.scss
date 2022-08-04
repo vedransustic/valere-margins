@@ -1,11 +1,43 @@
 @use '../../constants/variables' as v;
 
-.signin {
-	border: 1px solid v.$gray;
-	color: v.$white;
-	background-color: rgba(v.$light-gray, 0.25);
-	padding: 0.4rem 1rem;
+button {
+	font-size: large;
+	font-weight: 600;
+	font-style: oblique;
+	border: none;
+	padding: 1rem 2rem;
 	border-radius: v.$button-radius;
 	outline: none;
 	cursor: pointer;
+}
+.normal {
+	color: v.$black;
+	background-color: v.$yellow;
+}
+
+.outlined {
+	color: rgba(v.$gray, 1);
+	background-color: transparent;
+	border: 1px solid rgba(v.$gray, 1);
+
+	&:hover {
+		background-color: rgba(v.$gray, 0.25);
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1281px) {
+	button {
+		font-size: x-large;
+		font-weight: 500;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	button {
+		font-size: normal;
+		font-weight: 500;
+		font-style: oblique;
+		border: none;
+		padding: 1rem;
+	}
 }

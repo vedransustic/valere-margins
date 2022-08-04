@@ -5,7 +5,9 @@ import { SearchImg } from '../../assets/img';
 const Navigation = () => {
 	return (
 		<nav className='navigation'>
-			<Logo />
+			<div className='position_logo'>
+				<Logo />
+			</div>
 			<div className='navigation__menu'>
 				<ul className='navigation__menu__items'>
 					<li>Novo</li>

@@ -2,11 +2,9 @@
 
 footer {
 	width: 100vw;
-	position: absolute;
-	bottom: 0;
 	display: flex;
 	justify-content: space-around;
-	background-color: v.$bgcolor;
+	background-color: rgba(v.$bgcolor, 0.75);
 
 	.footer-content {
 		display: flex;
@@ -27,7 +25,7 @@ footer {
 	}
 }
 
-@media screen and (min-width: 769px) and (max-width: 1200px) {
+@media screen and (min-width: 769px) and (max-width: 1281px) {
 	footer {
 		.footer-content {
 			width: 80vw;

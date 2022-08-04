@@ -1,0 +1,23 @@
+@use '../../constants/variables' as v;
+
+.main-header {
+	color: v.$white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	font-size: 3.6rem;
+	line-height: 4.4rem;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1281px) {
+	.main-header {
+		font-size: 2.4rem;
+		line-height: 3rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.main-header {
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+	}
+}

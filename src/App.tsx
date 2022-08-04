@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
-import Footer from './components/Footer';
 import { Navigation } from './containers';
+import { Footer } from './components';
 import { Home, MovieDetails, MovieDiscovery, Error } from './pages';
 
 function App() {

@@ -1,0 +1,27 @@
+.divide__container {
+	width: inherit;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	gap: 20px;
+	margin: auto;
+
+	&__content__left,
+	&__content__right {
+		flex: 1;
+		padding: 2rem 8rem;
+	}
+}
+
+@media screen and (max-width: 1281px) {
+	.divide__container {
+		flex-direction: column;
+		justify-content: space-around;
+
+		&__content__left,
+		&__content__right {
+			padding: 2rem;
+			text-align: center;
+		}
+	}
+}

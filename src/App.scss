@@ -1,6 +1,8 @@
 @use './constants/variables' as v;
 
-* {
+*,
+*::after,
+*::before {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -9,13 +11,29 @@
 
 .App {
 	position: relative;
-	min-height: 100vh;
+	background: v.$black;
 	background-image: url('./assets/img/bgimg.png');
 	background-repeat: no-repeat;
-	background-color: v.$black;
+
+	mix-blend-mode: multiply;
 
 	.app-content {
-		position: absolute;
-		top: v.$nav-height;
+		margin-top: v.$nav-height;
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+	.App {
+		.app-content {
+			margin-top: v.$nav-height-tab;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.App {
+		.app-content {
+			margin-top: v.$nav-height-mobile;
+		}
 	}
 }
