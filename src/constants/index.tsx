@@ -4,7 +4,6 @@ export const heroText =
 	'Dobijte personalizirane preoporuke za filmove i serije dostupne na platformi Netflix, Amazon Prime Video, Ivi i još mnogo toga.';
 export const discoverText = 'Otkrijte filmove i serije';
 export const heroFunctionalityText = 'Funkcionalnosti';
-export const discoveryMainHeader = 'Filmovi i serije za vas';
 export const streamingSubtitle = 'Sve na jednom mjestu';
 export const streamingHeader = 'Vas vodic kroz streaming';
 export const streamingText =
@@ -170,3 +169,6 @@ export const availableCountries = [
 		],
 	},
 ];
+
+export const discoveryMainHeader = 'Filmovi i serije za vas';
+export const discoveryFavorites = 'Tvoji favoriti';

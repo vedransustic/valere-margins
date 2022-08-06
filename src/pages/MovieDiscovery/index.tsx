@@ -1,17 +1,24 @@
-import { MainHeader } from '../../components';
-import { discoveryMainHeader } from '../../constants';
-import { Media } from '../../containers';
-import './index.scss';
+import { useSelector } from 'react-redux';
+import requests from '../../api/requests';
+import { MediaRow } from '../../components';
+import { movieType } from '../../components/MediaRow/types';
 
 const MovieDiscovery = () => {
+	const favorites: Array<movieType> | any = useSelector<any>(
+		(state) => state.movies.favoriteMovies
+	);
 	return (
-		<div className='discovery-container'>
-			<MainHeader text={discoveryMainHeader} />
-			<h2 className='section-title' style={{ color: 'whitesmoke' }}>
-				Trending now
-			</h2>
-			<Media />
-		</div>
+		<>
+			{requests.map((request, idx) => {
+				return (
+					<MediaRow
+						key={idx}
+						title={request.name}
+						url={request.url}
+					/>
+				);
+			})}
+		</>
 	);
 };
 

@@ -1,15 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
-import { Navigation } from './containers';
-import { Footer } from './components';
 import { Home, MovieDetails, MovieDiscovery, Error } from './pages';
+import Layout from './Layout';
 
 function App() {
 	return (
 		<div className='App'>
-			<Navigation />
-			<main className='app-content'>
-				<Routes>
+			<Routes>
+				<Route element={<Layout />}>
 					<Route index element={<Home />} />
 					<Route
 						path='/movies/discover'
@@ -17,9 +15,8 @@ function App() {
 					/>
 					<Route path='/movies/:id' element={<MovieDetails />} />
 					<Route path='*' element={<Error />} />
-				</Routes>
-			</main>
-			<Footer />
+				</Route>
+			</Routes>
 		</div>
 	);
 }

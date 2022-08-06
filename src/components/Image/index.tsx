@@ -2,7 +2,15 @@ import React from 'react';
 import { propType } from './types';
 
 const Image: React.FC<propType> = ({ width, height, url, alt }) => {
-	return <img src={url} width={`${width}`} height={`${height}`} alt={alt} />;
+	return (
+		<img
+			src={url}
+			width={`${width}`}
+			height={`${height}`}
+			alt={alt}
+			style={{ objectFit: 'contain' }}
+		/>
+	);
 };
 
 Image.defaultProps = {

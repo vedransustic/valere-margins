@@ -3,9 +3,11 @@ import HorizontalDivide from './HorizontalDivide';
 import VerticalDivide from './VerticalDivide';
 import Image from './Image';
 import MainHeader from './MainHeader';
+import NormalHeader from './NormalHeader';
 import NormalText from './NormalText';
 import Subtitle from './Subtitle';
 import Button from './Button';
+import MediaRow from './MediaRow';
 import MovieItem from './MovieItem';
 import Footer from './Footer';
 
@@ -15,9 +17,11 @@ export {
 	Logo,
 	Image,
 	MainHeader,
+	NormalHeader,
 	NormalText,
 	Subtitle,
 	Button,
+	MediaRow,
 	MovieItem,
 	Footer,
 };

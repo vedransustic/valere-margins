@@ -1,5 +1,6 @@
 import {
 	MainHeader,
+	NormalHeader,
 	NormalText,
 	Button,
 	HorizontalDivide,
@@ -29,8 +30,11 @@ import {
 	availableCountries,
 } from '../../constants';
 import './index.scss';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const Home = () => {
+	useEffect(() => {}, []);
 	return (
 		<div className='home_container'>
 			<HorizontalDivide>
@@ -74,12 +78,12 @@ const Home = () => {
 			<section className='home_container__bottom'>
 				<div className='center_div'>
 					<Logo />
-					<MainHeader text={homeBottomHeader} />
+					<NormalHeader text={homeBottomHeader} />
 					<Button text={discoverText} />
 				</div>
 			</section>
 			<section className='available'>
-				<MainHeader text={availableHeader} />
+				<NormalHeader text={availableHeader} />
 				<div className='available__region'>
 					{availableCountries.map((regionItem, rdx) => (
 						<div key={rdx} className='continent-list'>

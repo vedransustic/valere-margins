@@ -3,6 +3,7 @@
 .navigation {
 	height: v.$nav-height;
 	width: 100vw;
+	max-width: 100%;
 	background: v.$black;
 	position: fixed;
 	top: 0;

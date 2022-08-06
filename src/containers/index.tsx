@@ -1,4 +1,4 @@
 import Navigation from './Navigation';
-import Media from './Media';
+import Poster from './Poster';
 
-export { Navigation, Media };
+export { Navigation, Poster };
