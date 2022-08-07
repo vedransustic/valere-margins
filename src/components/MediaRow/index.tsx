@@ -6,13 +6,14 @@ import { Image } from '..';
 import './index.scss';
 import Poster from '../../containers/Poster';
 import { LeftArrow, RightArrow } from '../../assets/img';
+import { getAllMovies } from '../../redux/slice/movieSlice';
 
 const getName = (genre: number, movies: any) => {
 	switch (genre) {
 		case 10:
 			return {
 				name: 'Top 10',
-				data: movies
+				data: [...movies]
 					.sort(
 						(a: { vote: number }, b: { vote: number }) =>
 							b.vote - a.vote
@@ -59,7 +60,7 @@ const MediaRow: React.FC<propType> = ({ genre }) => {
 	const [isMoved, setIsMoved] = useState(false);
 	const [slideNumber, setSlideNumber] = useState(0);
 	const moviesRef = useRef<any>(null);
-	const movies: any = useSelector<any>((state) => state.movies.movieList);
+	const movies: any = useSelector<any>(getAllMovies);
 	const moviesToDisplay = getName(genre, movies);
 
 	const handleClick = (direction: string) => {

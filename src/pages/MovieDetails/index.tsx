@@ -1,22 +1,38 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { HorizontalDivide, NormalHeader, NormalText } from '../../components';
-//import { toggleFavorites } from '../../redux/actions/movieActions';
+import {
+	HorizontalDivide,
+	MainHeader,
+	NormalHeader,
+	NormalText,
+} from '../../components';
+import {
+	fetchAsyncMovieDetail,
+	getSelectedMovie,
+	removeMovieDetail,
+} from '../../redux/slice/movieSlice';
 
 import './index.scss';
 
 const MovieDetails = () => {
 	const { id } = useParams();
-	const movieInfo: any = useSelector<any>((state) => state.movies.movieList);
-	//const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	const movie = useSelector(getSelectedMovie);
 
-	const movieForPreview = movieInfo.find(
-		(movie: { id: number }) => movie.id.toString() === id
-	);
+	useEffect(() => {
+		dispatch(fetchAsyncMovieDetail(id));
+		return () => {
+			dispatch(removeMovieDetail());
+		};
+	}, [dispatch, id]);
 
-	const handleClick = (id: number) => {
-		//dispatch(toggleFavorites(id));
-	};
+	if (Object.keys(movie).length === 0)
+		return (
+			<div className='loading'>
+				<MainHeader text='Loading...' />
+			</div>
+		);
 
 	return (
 		<div className='movieDetails'>
@@ -24,40 +40,26 @@ const MovieDetails = () => {
 				<img
 					className='movie_image'
 					src={`${import.meta.env.VITE_API_POSTER_URL}${
-						movieForPreview.poster_path
+						movie.poster_path
 					}`}
-					alt={movieForPreview.title}
+					alt={movie.title}
 				/>
 				<div className='movie_info'>
-					<NormalHeader text={movieForPreview.title} />
+					<NormalHeader text={movie.title} />
 					<div className='pills'>
 						<div className='pill media_type'>
-							{movieForPreview.vote} / 10
+							{movie.vote ? movie.vote / 10 : 'Neocijenjeno'}
 						</div>
-						<div className='lang pill'>
-							{movieForPreview.language}
-						</div>
+
+						<div className='lang pill'>{movie.language}</div>
+
 						<div className='release_date pill'>
-							{movieForPreview.release_date}
+							{movie.release_date}
 						</div>
-						{movieForPreview.adult > 18 && (
-							<div className='adult'>18+</div>
-						)}
+
+						{movie.adult > 18 && <div className='adult'>18+</div>}
 					</div>
-					<NormalText text={movieForPreview.overview} />
-					{movieForPreview.favorite ? (
-						<div
-							className='favorite_button'
-							onClick={() => handleClick(movieForPreview.id)}>
-							Makni iz favorita
-						</div>
-					) : (
-						<div
-							className='favorite_button'
-							onClick={() => handleClick(movieForPreview.id)}>
-							Dodaj u favorite
-						</div>
-					)}
+					<NormalText text={movie.overview} />
 				</div>
 			</HorizontalDivide>
 		</div>

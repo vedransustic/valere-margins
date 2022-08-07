@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { addMovieData } from '../redux/actions/movieActions';
 import instance from './axios';
 
 type requestType = {
@@ -49,7 +47,9 @@ const getDataFromRequests = (requests: any) => {
 		)
 		.then(
 			axios.spread((...data) => {
-				return data;
+				return data.map((item) => {
+					return item.data.results;
+				});
 			})
 		)
 		.catch((err) => console.error(err));

@@ -34,55 +34,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getDataFromRequests, requests } from '../../api/requests';
 import { useEffect } from 'react';
-import { addMovies } from '../../redux/slice/movieSlice';
+import { fetchAsyncMovies, getAllMovies } from '../../redux/slice/movieSlice';
 
 const Home = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const getData = async () => {
-			return await new Promise(async (resolve, reject) => {
-				return await getDataFromRequests(requests)
-					.then((data) => resolve(data))
-					.catch((err) => reject(err));
-			});
-		};
-		getData()
-			.then((res: any) => {
-				const data = requests.map((item, idx) => {
-					return res[idx].data.results.map((item: any) => {
-						return {
-							id: item.id,
-							title: item.original_title,
-							overview: item.overview,
-							language: item.original_language,
-							adult: item.adult,
-							genre: item.genre_ids,
-							vote: item.vote_average,
-							poster_path: item.poster_path,
-							release_date: item.release_date,
-							favorite: false,
-						};
-					});
-				});
-				dispatch(addMovies(data));
-			})
-			.catch((err: any) => console.error(err));
-	}, []);
+		dispatch(fetchAsyncMovies());
+	}, [dispatch]);
 
-	//const navigate = useNavigate();
-	// const loading: any = useSelector<any>((state) => state.movies.loading);
-	// const movies: any = useSelector<any>((state) => state.movies.movieList);
-	// const error: any = useSelector<any>((state) => state.movies.error);
-	//const moviesToDisplay = movies.sort(() => 0.5 - Math.random()).slice(0, 10);
-
-	// if (loading) {
-	// 	<div className='loading' />;
-	// }
-
-	// if (error) {
-	// 	<div className='error'>{JSON.stringify(error)}</div>;
-	// }
+	const navigate = useNavigate();
+	const movies: any = useSelector<any>(getAllMovies);
+	const moviesToDisplay = [...movies]
+		.sort(() => 0.5 - Math.random())
+		.slice(0, 10);
+	if (!movies.Response) {
+		<div>
+			<MainHeader text={movies.Error} />
+		</div>;
+	}
 
 	return (
 		<div className='home_container'>
@@ -103,7 +73,7 @@ const Home = () => {
 				</div>
 				<div className='home_container__right_side'>
 					<div className='home_container__right_side__tv'>
-						{/* {moviesToDisplay.map(
+						{moviesToDisplay.map(
 							(item: { id: number; poster_path: string }) => {
 								return (
 									<img
@@ -118,7 +88,7 @@ const Home = () => {
 									/>
 								);
 							}
-						)} */}
+						)}
 					</div>
 				</div>
 			</HorizontalDivide>

@@ -1,3 +1,5 @@
+import store from '../redux/store';
+
 export type apiDataType = {
 	id: number;
 	title: string;
@@ -13,4 +15,7 @@ export type apiDataType = {
 
 export type stateType = {
 	movies: Array<apiDataType>;
+	selectedMovie: apiDataType;
 };
+
+export type AppDispatch = typeof store.dispatch;
