@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-//import axios from '../../api/axios';
-import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useRef, useState } from 'react';
 import { NormalHeader } from '..';
 import { propType } from './types';
 import { Image } from '..';

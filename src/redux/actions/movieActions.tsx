@@ -1,29 +1,36 @@
 import {
-	ADD_MOVIE_DATA,
-	ADD_MOVIE_TO_FAVORITES,
-	REMOVE_MOVIE_FROM_FAVORITES,
+	ADD_MOVIE_DATA_REQUEST,
+	ADD_MOVIE_DATA_SUCCESS,
+	ADD_MOVIE_DATA_FAIL,
+	TOGGLE_FAVORITES,
 } from '../../constants/redux';
 import { apiDataType } from '../../types';
 
+const addMovieLoading = () => {
+	return {
+		type: ADD_MOVIE_DATA_REQUEST,
+	};
+};
+
 const addMovieData = (data: Array<Array<apiDataType>>) => {
 	return {
-		type: ADD_MOVIE_DATA,
+		type: ADD_MOVIE_DATA_SUCCESS,
 		payload: data,
 	};
 };
 
-const addMovieToFavorites = (id: number) => {
+const addMovieError = (error: any) => {
 	return {
-		type: ADD_MOVIE_TO_FAVORITES,
+		type: ADD_MOVIE_DATA_FAIL,
+		payload: error,
+	};
+};
+
+const toggleFavorites = (id: number) => {
+	return {
+		type: TOGGLE_FAVORITES,
 		payload: id,
 	};
 };
 
-const removeMovieFromFavorites = (id: number) => {
-	return {
-		type: REMOVE_MOVIE_FROM_FAVORITES,
-		payload: id,
-	};
-};
-
-export { addMovieData, addMovieToFavorites, removeMovieFromFavorites };
+export { addMovieLoading, addMovieData, addMovieError, toggleFavorites };

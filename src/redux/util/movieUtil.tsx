@@ -2,7 +2,6 @@ import { apiDataType } from '../../types';
 
 export const addMoviesToList: any = (array: Array<Array<apiDataType>>) => {
 	const newArray = array.flat();
-
 	const uniqueArray = Array.from(new Set(newArray.map((x) => x.id))).map(
 		(id) => {
 			return newArray.find((x) => x.id === id);
@@ -12,14 +11,10 @@ export const addMoviesToList: any = (array: Array<Array<apiDataType>>) => {
 	return uniqueArray;
 };
 
-export const addToFavorites = (array: Array<apiDataType>, id: number) => {
+export const toggleFavorites = (array: Array<apiDataType>, id: number) => {
 	return array.map((movie) => {
-		return movie.id === id ? { ...movie, favorite: true } : movie;
-	});
-};
-
-export const removeFavoriteMovie = (array: Array<apiDataType>, id: number) => {
-	return array.map((movie) => {
-		return movie.id === id ? { ...movie, favorite: false } : movie;
+		return movie.id !== id
+			? { ...movie }
+			: { ...movie, favorite: !movie.favorite };
 	});
 };

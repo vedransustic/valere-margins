@@ -12,5 +12,5 @@ export type apiDataType = {
 };
 
 export type stateType = {
-	movieList: Array<apiDataType>;
+	movies: Array<apiDataType>;
 };

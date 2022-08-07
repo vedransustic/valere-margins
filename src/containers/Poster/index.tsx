@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { StarEmpty, StarFull } from '../../assets/img';
 import { NormalText } from '../../components';
-import {
-	addMovieToFavorites,
-	removeMovieFromFavorites,
-} from '../../redux/actions/movieActions';
+import { toggleFavorites } from '../../redux/actions/movieActions';
 import './index.scss';
 
 const Poster: React.FC<any> = ({ movie }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const setAsFavorite = () => {
-		dispatch(addMovieToFavorites(movie.id));
-	};
-
-	const removeFromFavorites = () => {
-		dispatch(removeMovieFromFavorites(movie.id));
+	const handleFavorite = (id: number) => {
+		dispatch(toggleFavorites(id));
 	};
 
 	return (
@@ -28,14 +21,14 @@ const Poster: React.FC<any> = ({ movie }) => {
 					src={StarFull}
 					alt='favorite'
 					className='favorite'
-					onClick={removeFromFavorites}
+					onClick={() => handleFavorite(movie.id)}
 				/>
 			) : (
 				<img
 					src={StarEmpty}
 					alt='favorite'
 					className='favorite'
-					onClick={setAsFavorite}
+					onClick={() => handleFavorite(movie.id)}
 				/>
 			)}
 			<img
