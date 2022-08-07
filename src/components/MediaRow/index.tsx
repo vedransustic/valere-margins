@@ -1,32 +1,67 @@
 import { useDispatch, useSelector } from 'react-redux';
-import axios from '../../api/axios';
+//import axios from '../../api/axios';
 import { useEffect, useRef, useState } from 'react';
 import { NormalHeader } from '..';
-import { movieType, propType } from './types';
+import { propType } from './types';
 import { Image } from '..';
-import { addMovieData } from '../../redux/actions/movieActions';
 import './index.scss';
 import Poster from '../../containers/Poster';
 import { LeftArrow, RightArrow } from '../../assets/img';
 
-const MediaRow: React.FC<propType> = ({ title, url }) => {
+const getName = (genre: number, movies: any) => {
+	switch (genre) {
+		case 10:
+			return {
+				name: 'Top 10',
+				data: movies
+					.sort(
+						(a: { vote: number }, b: { vote: number }) =>
+							b.vote - a.vote
+					)
+					.slice(0, 10),
+			};
+		case 28:
+			return {
+				name: 'Akcijski filmovi',
+				data: movies.filter((x: { genre: number[] }) =>
+					x.genre.includes(genre)
+				),
+			};
+		case 27:
+			return {
+				name: 'Horror filmovi',
+				data: movies.filter((x: { genre: number[] }) =>
+					x.genre.includes(genre)
+				),
+			};
+		case 35:
+			return {
+				name: 'Komedije',
+				data: movies.filter((x: { genre: number[] }) =>
+					x.genre.includes(genre)
+				),
+			};
+		case 10749:
+			return {
+				name: 'Romanse',
+				data: movies.filter((x: { genre: number[] }) =>
+					x.genre.includes(genre)
+				),
+			};
+		default:
+			return {
+				name: 'Random',
+				data: movies.sort(() => 0.5 - Math.random()).slice(0, 20),
+			};
+	}
+};
+
+const MediaRow: React.FC<propType> = ({ genre }) => {
 	const [isMoved, setIsMoved] = useState(false);
 	const [slideNumber, setSlideNumber] = useState(0);
 	const moviesRef = useRef<any>(null);
-	const dispatch = useDispatch();
-	const movies: any = useSelector<any>(
-		(state) => state.movies.movieList[title]
-	);
-
-	useEffect(() => {
-		async function getMovieData() {
-			await axios
-				.get(url)
-				.then((res) => dispatch(addMovieData(title, res.data.results)))
-				.catch((err) => console.error('ERROR:: ', err.toJSON()));
-		}
-		getMovieData();
-	}, [url]);
+	const movies: any = useSelector<any>((state) => state.movies.movieList);
+	const moviesToDisplay = getName(genre, movies);
 
 	const handleClick = (direction: string) => {
 		setIsMoved(true);
@@ -60,11 +95,11 @@ const MediaRow: React.FC<propType> = ({ title, url }) => {
 
 	return (
 		<div className='media'>
-			<NormalHeader text={title} />
+			<NormalHeader text={moviesToDisplay.name} />
 			<div className='media__row'>
 				<div className='media__row__movies' ref={moviesRef}>
-					{movies &&
-						movies.map((movie: movieType) => (
+					{moviesToDisplay &&
+						moviesToDisplay.data.map((movie: any) => (
 							<Poster movie={movie} key={movie.id} />
 						))}
 				</div>

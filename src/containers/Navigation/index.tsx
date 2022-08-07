@@ -1,8 +1,10 @@
 import './index.scss';
 import { Logo, Image } from '../../components';
 import { SearchImg } from '../../assets/img';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
+	const navigate = useNavigate();
 	return (
 		<nav className='navigation'>
 			<div className='position_logo'>
@@ -10,8 +12,13 @@ const Navigation = () => {
 			</div>
 			<div className='navigation__menu'>
 				<ul className='navigation__menu__items'>
-					<li>Novo</li>
-					<li>Najgledanije</li>
+					<li onClick={() => navigate('/')}>Pocetna</li>
+					<li onClick={() => navigate('/movies/discover')}>
+						Filmovi
+					</li>
+					<li onClick={() => navigate('/movies/favorites')}>
+						Favoriti
+					</li>
 					<li className='search-li'>
 						<div className='search-container'>
 							<Image
@@ -23,7 +30,6 @@ const Navigation = () => {
 							<input type='text' placeholder='Pretrazi' />
 						</div>
 					</li>
-					<li className='signup-button'>Prijava</li>
 				</ul>
 			</div>
 		</nav>

@@ -13,6 +13,25 @@
 		}
 	}
 
+	&__right_side {
+		width: 100%;
+
+		&__tv {
+			width: auto;
+			border: 10px solid rgba(v.$black, 0.95);
+			display: flex;
+			flex-wrap: wrap;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+
+			img {
+				width: 140px;
+				cursor: pointer;
+			}
+		}
+	}
+
 	&__bottom {
 		width: 100%;
 		display: flex;

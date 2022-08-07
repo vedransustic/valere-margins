@@ -1,21 +1,21 @@
-import { movieType } from '../../components/MediaRow/types';
 import {
 	ADD_MOVIE_DATA,
 	ADD_MOVIE_TO_FAVORITES,
 	REMOVE_MOVIE_FROM_FAVORITES,
 } from '../../constants/redux';
+import { apiDataType } from '../../types';
 
-const addMovieData = (mediaType: string, moviesData: Array<object>) => {
+const addMovieData = (data: Array<Array<apiDataType>>) => {
 	return {
 		type: ADD_MOVIE_DATA,
-		payload: { mediaType, moviesData },
+		payload: data,
 	};
 };
 
-const addMovieToFavorites = (movieData: movieType) => {
+const addMovieToFavorites = (id: number) => {
 	return {
 		type: ADD_MOVIE_TO_FAVORITES,
-		payload: movieData,
+		payload: id,
 	};
 };
 

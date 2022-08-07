@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { StarEmpty, StarFull } from '../../assets/img';
-import { movieType } from '../../components/MediaRow/types';
+import { NormalText } from '../../components';
 import {
 	addMovieToFavorites,
 	removeMovieFromFavorites,
@@ -9,22 +10,20 @@ import {
 import './index.scss';
 
 const Poster: React.FC<any> = ({ movie }) => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const [isFavorite, setIsFavorite] = useState(false);
 
 	const setAsFavorite = () => {
-		dispatch(addMovieToFavorites(movie));
-		setIsFavorite(true);
+		dispatch(addMovieToFavorites(movie.id));
 	};
 
 	const removeFromFavorites = () => {
 		dispatch(removeMovieFromFavorites(movie.id));
-		setIsFavorite(false);
 	};
 
 	return (
 		<div className='poster'>
-			{isFavorite ? (
+			{movie.favorite ? (
 				<img
 					src={StarFull}
 					alt='favorite'
@@ -45,6 +44,11 @@ const Poster: React.FC<any> = ({ movie }) => {
 				}`}
 				alt={movie.original_title}
 			/>
+			<div
+				className='poster__more_info'
+				onClick={() => navigate(`/movies/${movie.id}`)}>
+				<NormalText text='More info' />
+			</div>
 		</div>
 	);
 };

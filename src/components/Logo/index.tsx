@@ -1,11 +1,12 @@
 import './index.scss';
 import { LogoImg } from '../../assets/img';
-import { Image } from '../';
+import { useNavigate } from 'react-router-dom';
 
 const Logo = () => {
+	const navigate = useNavigate();
 	return (
 		<div className='logo'>
-			<Image url={LogoImg} />
+			<img src={LogoImg} onClick={() => navigate('/')} />
 		</div>
 	);
 };

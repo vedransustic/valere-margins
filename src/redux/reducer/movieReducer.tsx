@@ -4,11 +4,15 @@ import {
 	ADD_MOVIE_TO_FAVORITES,
 	REMOVE_MOVIE_FROM_FAVORITES,
 } from '../../constants/redux';
-import { removeFavoriteMovie } from '../util/movieUtil';
+import { stateType } from '../../types';
+import {
+	addMoviesToList,
+	addToFavorites,
+	removeFavoriteMovie,
+} from '../util/movieUtil';
 
-const initialState = {
-	movieList: {},
-	favoriteMovies: [],
+const initialState: stateType = {
+	movieList: [],
 };
 
 const movieReducer = (state = initialState, action: PayloadAction<any>) => {
@@ -16,24 +20,15 @@ const movieReducer = (state = initialState, action: PayloadAction<any>) => {
 	switch (type) {
 		case ADD_MOVIE_DATA:
 			return {
-				...state,
-				movieList: {
-					...state.movieList,
-					[payload.mediaType]: payload.moviesData,
-				},
+				movieList: addMoviesToList(payload),
 			};
 		case ADD_MOVIE_TO_FAVORITES:
 			return {
-				...state,
-				favoriteMovies: [...state.favoriteMovies, payload],
+				movieList: addToFavorites(state.movieList, payload),
 			};
 		case REMOVE_MOVIE_FROM_FAVORITES:
 			return {
-				...state,
-				favoriteMovies: removeFavoriteMovie(
-					state.favoriteMovies,
-					payload
-				),
+				movieList: removeFavoriteMovie(state.movieList, payload),
 			};
 		default:
 			return state;

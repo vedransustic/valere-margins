@@ -8,7 +8,6 @@ import NormalText from './NormalText';
 import Subtitle from './Subtitle';
 import Button from './Button';
 import MediaRow from './MediaRow';
-import MovieItem from './MovieItem';
 import Footer from './Footer';
 
 export {
@@ -22,6 +21,5 @@ export {
 	Subtitle,
 	Button,
 	MediaRow,
-	MovieItem,
 	Footer,
 };

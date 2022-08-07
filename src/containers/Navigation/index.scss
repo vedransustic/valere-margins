@@ -10,8 +10,10 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	z-index: 10;
 
 	.position_logo {
+		flex: 1;
 		padding-left: 8rem;
 	}
 
@@ -67,15 +69,6 @@
 						border-bottom-right-radius: v.$button-radius;
 					}
 				}
-			}
-
-			.signup-button {
-				max-width: 100px;
-				background-color: rgba(v.$light-blue, 0.2);
-				padding: 0.4rem 1rem;
-				margin: 2px 0;
-				border-radius: v.$button-radius;
-				border: 1px solid rgba(v.$white, 0.2);
 			}
 		}
 	}

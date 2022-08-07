@@ -1,0 +1,55 @@
+@use '../../constants/variables' as v;
+
+.movieDetails {
+	min-height: v.$min-height;
+	.movie_image {
+		width: 100%;
+	}
+	.movie_info {
+		height: 30vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+	.pills {
+		display: flex;
+		gap: 20px;
+
+		.pill {
+			padding: 0.25rem;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			font-size: larger;
+			text-transform: capitalize;
+			display: flex;
+			justify-content: center;
+			font-weight: 500;
+			font-style: oblique;
+		}
+		.media_type {
+			width: 100px;
+			background-color: v.$yellow;
+		}
+		.lang {
+			width: 40px;
+			background-color: v.$blue;
+		}
+		.release_date {
+			width: 120px;
+			background-color: v.$green;
+		}
+		.adult {
+			width: 2.4rem;
+			height: 2.4rem;
+			border-radius: 50%;
+			color: v.$white;
+			background-color: red;
+			font-size: large;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}

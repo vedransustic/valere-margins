@@ -30,11 +30,16 @@ import {
 	availableCountries,
 } from '../../constants';
 import './index.scss';
-import { useEffect } from 'react';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { Poster } from '../../containers';
+import { Key } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-	useEffect(() => {}, []);
+	const navigate = useNavigate();
+	const movies: any = useSelector<any>((state) => state.movies.movieList);
+	const moviesToDisplay = movies.sort(() => 0.5 - Math.random()).slice(0, 10);
+
 	return (
 		<div className='home_container'>
 			<HorizontalDivide>
@@ -42,14 +47,36 @@ const Home = () => {
 					<MainHeader text={heroHeader} />
 					<NormalText text={heroText} />
 					<div className='home_container__left_side__buttons'>
-						<Button text={discoverText} />
+						<Button
+							text={discoverText}
+							route={'/movies/discover'}
+						/>
 						<Button
 							text={heroFunctionalityText}
 							variant='outlined'
 						/>
 					</div>
 				</div>
-				<div className='home_container__right_side'></div>
+				<div className='home_container__right_side'>
+					{/* <div className='home_container__right_side__tv'>
+						{moviesToDisplay.map(
+							(item: { id: number; poster_path: string }) => {
+								return (
+									<img
+										key={item.id}
+										src={`${
+											import.meta.env.VITE_API_POSTER_URL
+										}${item.poster_path}`}
+										alt='poster_404'
+										onClick={() =>
+											navigate(`/movies/${item.id}`)
+										}
+									/>
+								);
+							}
+						)}
+					</div> */}
+				</div>
 			</HorizontalDivide>
 			<HorizontalDivide>
 				<Image width={'100%'} height={'auto'} url={Img1} />
