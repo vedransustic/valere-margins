@@ -1,16 +1,18 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, AnyAction } from '@reduxjs/toolkit';
 import axios from '../../api/axios';
 import { getDataFromRequests, requests } from '../../api/requests';
 import { apiDataType } from '../../types';
 import { addMoviesToList, formatResponse } from '../util/movieUtil';
 import { WritableDraft } from 'immer/dist/internal';
 
-export const fetchAsyncMovies = createAsyncThunk(
+export const fetchAsyncMovies: any = createAsyncThunk(
 	'movies/fetchAsyncMovies',
 	async () => {
-		const response = await getDataFromRequests(requests).catch((err) => {
-			throw new Error(err);
-		});
+		const response: any = await getDataFromRequests(requests).catch(
+			(err) => {
+				throw new Error(err);
+			}
+		);
 		return addMoviesToList(response);
 	}
 );

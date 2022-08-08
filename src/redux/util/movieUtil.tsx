@@ -1,9 +1,11 @@
 import { apiDataType, apiResponseType } from '../../types';
 
-export const addMoviesToList = (array: Array<Array<apiDataType>>) => {
+export const addMoviesToList = (array: any) => {
 	const newArray = array.flat();
-	const resoult = Array.from(new Set(newArray.map((x) => x.id))).map((id) => {
-		return newArray.find((x) => x.id === id);
+	const resoult = Array.from(
+		new Set(newArray.map((x: { id: number }) => x.id))
+	).map((id) => {
+		return newArray.find((x: { id: number }) => x.id === id);
 	});
 	return resoult.map((movie: any) => {
 		return formatResponse(movie);
