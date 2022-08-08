@@ -3,7 +3,7 @@ import { getAllMovies } from '../redux/slice/movieSlice';
 
 export const loadFromLocalStorage = () => {
 	try {
-		const serialisedState = localStorage.getItem('persistantState2');
+		const serialisedState = localStorage.getItem('persistantState');
 		if (serialisedState === null) return useSelector<any>(getAllMovies);
 		return JSON.parse(serialisedState);
 	} catch (err) {
