@@ -1,11 +1,11 @@
-import { apiDataType } from '../../types';
+import { apiDataType, apiResponseType } from '../../types';
 
-export const addMoviesToList: any = (array: Array<Array<apiDataType>>) => {
+export const addMoviesToList = (array: Array<Array<apiDataType>>) => {
 	const newArray = array.flat();
 	const resoult = Array.from(new Set(newArray.map((x) => x.id))).map((id) => {
 		return newArray.find((x) => x.id === id);
 	});
-	return resoult.map((movie) => {
+	return resoult.map((movie: any) => {
 		return formatResponse(movie);
 	});
 };
@@ -18,7 +18,7 @@ export const toggleFavorites = (array: Array<apiDataType>, id: number) => {
 	});
 };
 
-export const formatResponse = (movie) => {
+export const formatResponse = (movie: apiResponseType) => {
 	return {
 		id: movie?.id,
 		title: movie?.original_title,

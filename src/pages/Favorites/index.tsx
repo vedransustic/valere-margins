@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { Poster } from '../../containers';
+import { Poster } from '../../components';
+import { getAllMovies } from '../../redux/slice/movieSlice';
 import './index.scss';
 
 const Favorites = () => {
-	const movies: any = useSelector<any>((state) => state.movies.movieList);
-
+	const movies: any = useSelector<any>(getAllMovies);
 	const moviesToDisplay = movies.filter(
 		(x: { favorite: boolean }) => x.favorite === true
 	);

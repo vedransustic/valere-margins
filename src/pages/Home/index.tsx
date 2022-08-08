@@ -32,17 +32,9 @@ import {
 import './index.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getDataFromRequests, requests } from '../../api/requests';
-import { useEffect } from 'react';
-import { fetchAsyncMovies, getAllMovies } from '../../redux/slice/movieSlice';
+import { getAllMovies } from '../../redux/slice/movieSlice';
 
 const Home = () => {
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(fetchAsyncMovies());
-	}, [dispatch]);
-
 	const navigate = useNavigate();
 	const movies: any = useSelector<any>(getAllMovies);
 	const moviesToDisplay = [...movies]

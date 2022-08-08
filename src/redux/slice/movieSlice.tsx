@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../api/axios';
 import { getDataFromRequests, requests } from '../../api/requests';
+import { apiDataType } from '../../types';
 import { addMoviesToList, formatResponse } from '../util/movieUtil';
 
 export const fetchAsyncMovies = createAsyncThunk(
@@ -37,6 +38,16 @@ const movieSlice = createSlice({
 		removeMovieDetail: (state) => {
 			state.selectedMovie = {};
 		},
+		toggleFavorites: (state: any, action) => {
+			const movieId: number = state.movies.findIndex(
+				(movie: { id: number }) => movie.id === action.payload
+			);
+
+			if (movieId >= 0) {
+				state.movies[movieId].favorite =
+					!state.movies[movieId].favorite;
+			}
+		},
 	},
 	extraReducers: {
 		[fetchAsyncMovies.pending.toString()]: () => {
@@ -46,7 +57,7 @@ const movieSlice = createSlice({
 			console.log('Fetched Succesfully');
 			return { ...state, movies: payload };
 		},
-		[fetchAsyncMovies.rejected.toString()]: (state, payload) => {
+		[fetchAsyncMovies.rejected.toString()]: () => {
 			console.log('Fetched Faild');
 		},
 		[fetchAsyncMovieDetail.fulfilled.toString()]: (state, { payload }) => {
@@ -55,8 +66,9 @@ const movieSlice = createSlice({
 	},
 });
 
-export const { removeMovieDetail } = movieSlice.actions;
-export const getAllMovies = (state: { movies: any }) => state.movies;
-export const getSelectedMovie = (state: { selectedMovie: any }) =>
+export const { removeMovieDetail, toggleFavorites } = movieSlice.actions;
+export const getAllMovies = (state: { movies: Array<apiDataType> }) =>
+	state.movies;
+export const getSelectedMovie = (state: { selectedMovie: apiDataType }) =>
 	state.selectedMovie;
 export default movieSlice.reducer;

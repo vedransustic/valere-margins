@@ -8,3 +8,20 @@
 	flex-wrap: wrap;
 	gap: 20px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1281px) {
+	.favorite-container {
+		padding: 4rem;
+		width: 100%;
+		min-height: v.$min-height;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.favorite-container {
+		padding: 24vw;
+	}
+}

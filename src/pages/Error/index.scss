@@ -1,0 +1,9 @@
+.error_content {
+	width: 100vw;
+	height: 60vh;
+	display: grid;
+	place-items: center;
+	&__mid {
+		text-align: center;
+	}
+}

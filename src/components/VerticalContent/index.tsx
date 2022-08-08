@@ -3,7 +3,7 @@ import { NormalHeader, NormalText, Subtitle } from '..';
 import { propType } from './types';
 import './index.scss';
 
-const VerticalDivide: React.FC<propType> = ({ subtitle, header, text }) => {
+const VerticalContent: React.FC<propType> = ({ subtitle, header, text }) => {
 	return (
 		<div className='vertical_divide'>
 			<div className='vertical_divide__center_content'>
@@ -15,4 +15,4 @@ const VerticalDivide: React.FC<propType> = ({ subtitle, header, text }) => {
 	);
 };
 
-export default VerticalDivide;
+export default VerticalContent;

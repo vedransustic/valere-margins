@@ -1,13 +1,13 @@
-import React from 'react';
+import { MainHeader } from '../../components';
 import './index.scss';
 
-const Error = () => {
-	return (
-		<div className='content'>
-			<h2>404</h2>
-			<h4>PAGE NOT FOUND...</h4>
+const Error = () => (
+	<div className='error_content'>
+		<div className='error_content__mid'>
+			<MainHeader text='404 !' />
+			<MainHeader text='PAGE NOT FOUND...' />
 		</div>
-	);
-};
+	</div>
+);
 
 export default Error;

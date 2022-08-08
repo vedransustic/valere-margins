@@ -26,6 +26,7 @@ html {
 	mix-blend-mode: multiply;
 
 	.app-content {
+		min-height: v.$min-height;
 		margin-top: v.$nav-height;
 	}
 }

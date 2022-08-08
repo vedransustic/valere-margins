@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { StarEmpty, StarFull } from '../../assets/img';
-import { NormalText } from '../../components';
-import { toggleFavorites } from '../../redux/actions/movieActions';
+import { NormalText } from '..';
+import { toggleFavorites } from '../../redux/slice/movieSlice';
 import './index.scss';
 
 const Poster: React.FC<any> = ({ movie }) => {

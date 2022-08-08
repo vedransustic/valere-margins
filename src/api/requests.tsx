@@ -1,11 +1,6 @@
 import axios from 'axios';
+import { requestType } from '../types';
 import instance from './axios';
-
-type requestType = {
-	name: string;
-	genre: number;
-	url: string;
-};
 
 const requests: Array<requestType> = [
 	{
@@ -38,7 +33,7 @@ const requests: Array<requestType> = [
 	},
 ];
 
-const getDataFromRequests = (requests: any) => {
+const getDataFromRequests = (requests: Array<requestType>) => {
 	return axios
 		.all(
 			requests.map((item: any) => {

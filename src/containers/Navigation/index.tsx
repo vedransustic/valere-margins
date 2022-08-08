@@ -3,11 +3,12 @@ import { Logo, Image } from '../../components';
 import { SearchImg } from '../../assets/img';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { getAllMovies } from '../../redux/slice/movieSlice';
 
 const Navigation = () => {
 	const navigate = useNavigate();
-	const movies: any = useSelector<any>((state) => state.movies.movieList);
+	const movies: any = useSelector<any>(getAllMovies);
 	const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
 	const [inputText, setInputText] = useState('');
 

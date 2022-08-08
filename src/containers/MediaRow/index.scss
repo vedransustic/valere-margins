@@ -1,0 +1,47 @@
+@use '../../constants/variables' as v;
+
+.media {
+	margin: 50px;
+
+	&__row {
+		position: relative;
+		overflow-x: scroll;
+
+		.shadow-scroll-x {
+			overflow-x: auto;
+			border: 2px solid v.$yellow;
+		}
+
+		&__movies {
+			display: flex;
+			width: max-content;
+			margin: 20px;
+			gap: 2rem;
+			padding: 2rem;
+			transform: translate(0px);
+			transition: all 1s ease;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.media {
+		margin: 40px;
+
+		&__row {
+			&__movies {
+				display: flex;
+				width: max-content;
+				margin: 20px;
+				gap: 2rem;
+				padding: 2rem;
+				transform: translate(0px);
+				transition: all 1s ease;
+
+				&::-webkit-scrollbar {
+					display: none;
+				}
+			}
+		}
+	}
+}

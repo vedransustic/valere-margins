@@ -1,9 +1,18 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import { Home, MovieDetails, MovieDiscovery, Error, Favorites } from './pages';
 import Layout from './Layout';
+import { useDispatch } from 'react-redux';
+import { fetchAsyncMovies } from './redux/slice/movieSlice';
 
 const App = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchAsyncMovies());
+	}, [dispatch]);
+
 	return (
 		<div className='App'>
 			<Routes>

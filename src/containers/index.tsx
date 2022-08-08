@@ -1,4 +1,4 @@
 import Navigation from './Navigation';
-import Poster from './Poster';
+import MediaRow from './MediaRow';
 
-export { Navigation, Poster };
+export { Navigation, MediaRow };

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -9,8 +9,10 @@ import {
 } from '../../components';
 import {
 	fetchAsyncMovieDetail,
+	getAllMovies,
 	getSelectedMovie,
 	removeMovieDetail,
+	toggleFavorites,
 } from '../../redux/slice/movieSlice';
 
 import './index.scss';
@@ -18,21 +20,19 @@ import './index.scss';
 const MovieDetails = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const movie = useSelector(getSelectedMovie);
+	const movies = useSelector(getAllMovies);
+	const movie = movies.find((x) => x.id === parseInt(id));
 
-	useEffect(() => {
-		dispatch(fetchAsyncMovieDetail(id));
-		return () => {
-			dispatch(removeMovieDetail());
-		};
-	}, [dispatch, id]);
-
-	if (Object.keys(movie).length === 0)
+	if (!movie)
 		return (
 			<div className='loading'>
 				<MainHeader text='Loading...' />
 			</div>
 		);
+
+	const handleClick = (id: number) => {
+		dispatch(toggleFavorites(id));
+	};
 
 	return (
 		<div className='movieDetails'>
@@ -57,9 +57,24 @@ const MovieDetails = () => {
 							{movie.release_date}
 						</div>
 
-						{movie.adult > 18 && <div className='adult'>18+</div>}
+						{movie.adult && <div className='adult'>18+</div>}
 					</div>
 					<NormalText text={movie.overview} />
+					<div className='button-container'>
+						{movie.favorite ? (
+							<div
+								className='favorite-button'
+								onClick={() => handleClick(movie.id)}>
+								Remove from favorite
+							</div>
+						) : (
+							<div
+								className='favorite-button'
+								onClick={() => handleClick(movie.id)}>
+								Add to favorite
+							</div>
+						)}
+					</div>
 				</div>
 			</HorizontalDivide>
 		</div>

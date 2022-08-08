@@ -6,10 +6,11 @@
 		width: 100%;
 	}
 	.movie_info {
-		height: 30vh;
+		height: 40vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
+
 		.pills {
 			display: flex;
 			gap: 20px;
@@ -28,15 +29,18 @@
 				font-style: oblique;
 			}
 			.media_type {
-				width: 100px;
+				width: auto;
+				min-width: 140px;
 				background-color: v.$yellow;
 			}
 			.lang {
-				width: 40px;
+				width: auto;
+				min-width: 40px;
 				background-color: v.$blue;
 			}
 			.release_date {
-				width: 120px;
+				width: auto;
+				min-width: 140px;
 				background-color: v.$green;
 			}
 			.adult {
@@ -51,8 +55,10 @@
 				justify-content: center;
 			}
 		}
+	}
 
-		.favorite_button {
+	.button-container {
+		.favorite-button {
 			width: 300px;
 			display: grid;
 			place-items: center;
@@ -64,4 +70,10 @@
 			cursor: pointer;
 		}
 	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1281px) {
+}
+
+@media screen and (max-width: 768px) {
 }

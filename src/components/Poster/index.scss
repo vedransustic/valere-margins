@@ -26,7 +26,6 @@
 	&__more_info {
 		padding: 1rem 1rem;
 		width: 80%;
-		display: flex;
 		background-color: rgba(v.$black, 0.7);
 		position: absolute;
 		top: 60%;
@@ -36,6 +35,42 @@
 
 		:only-child {
 			margin: auto;
+		}
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1281px) {
+	.poster {
+		.favorite {
+			top: 4px;
+			left: 4px;
+		}
+
+		img {
+			width: 200px;
+		}
+
+		&__more_info {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.poster {
+		.favorite {
+			top: 4px;
+			left: 4px;
+		}
+		img {
+			width: 200px;
+		}
+
+		&__more_info {
+			padding: 2rem 2rem;
+			width: 100%;
+			display: grid;
+			place-items: center;
 		}
 	}
 }

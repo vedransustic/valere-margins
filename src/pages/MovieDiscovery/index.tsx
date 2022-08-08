@@ -1,5 +1,5 @@
 import { requests } from '../../api/requests';
-import { MediaRow } from '../../components';
+import { MediaRow } from '../../containers';
 
 const MovieDiscovery = () => {
 	return (
