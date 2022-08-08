@@ -1,0 +1,112 @@
+@use '../../constants/variables' as v;
+
+.navigation {
+	height: v.$nav-height;
+	width: 100vw;
+	max-width: 100%;
+	background: v.$black;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 10;
+
+	.position_logo {
+		flex: 1;
+		padding-left: 8rem;
+	}
+
+	&__menu {
+		flex: 1;
+
+		&__items {
+			margin-right: v.$space_from_edge;
+			display: flex;
+			justify-content: space-evenly;
+			list-style: none;
+
+			li {
+				display: grid;
+				place-items: center;
+				color: v.$white;
+				flex: 1;
+				font-size: large;
+				cursor: pointer;
+				margin: 0 1rem;
+			}
+			li.search-li {
+				flex: 3;
+				margin: 2px 1rem;
+				position: relative;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+	.navigation {
+		height: v.$nav-height-tab;
+		flex-direction: column;
+		justify-content: center;
+
+		.position_logo {
+			padding-left: 0;
+		}
+
+		&__menu {
+			width: 96vw;
+
+			&__items {
+				margin-right: 0;
+
+				li.search-li {
+					flex: 3;
+					margin: 0 10px;
+
+					.search-container {
+						display: inline-flex;
+						input {
+							width: 320px;
+						}
+					}
+
+					.search-resoults {
+						position: absolute;
+						top: 40px;
+						left: 40px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.navigation {
+		height: v.$nav-height-mobile;
+		flex-direction: column;
+
+		.position_logo {
+			padding-left: 0;
+		}
+
+		&__menu {
+			flex: 1;
+
+			&__items {
+				margin-right: 0;
+				flex-wrap: wrap;
+
+				li {
+					flex: 1;
+					font-size: small;
+					min-height: 24px;
+					padding: 5px;
+					height: 20px;
+					margin: 5px;
+				}
+			}
+		}
+	}
+}

@@ -26,7 +26,7 @@ export type apiResponseType = {
 	original_language: string;
 	genre_ids: Array<number>;
 	adult: boolean;
-	vote: number;
+	vote_average: number;
 	poster_path: string;
 	release_date: string;
 	favorite: boolean;

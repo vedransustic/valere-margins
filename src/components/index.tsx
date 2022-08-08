@@ -8,6 +8,7 @@ import NormalHeader from './NormalHeader';
 import NormalText from './NormalText';
 import Subtitle from './Subtitle';
 import Button from './Button';
+import Navigation from './Navigation';
 import Footer from './Footer';
 
 export {
@@ -21,5 +22,6 @@ export {
 	NormalText,
 	Subtitle,
 	Button,
+	Navigation,
 	Footer,
 };

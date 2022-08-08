@@ -1,16 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { propType } from './types';
 
 const Image: React.FC<propType> = ({ width, height, url, alt }) => {
-	return (
-		<img
-			src={url}
-			width={`${width}`}
-			height={`${height}`}
-			alt={alt}
-			style={{ objectFit: 'contain' }}
-		/>
-	);
+	return <img src={url} width={`${width}`} height={`${height}`} alt={alt} />;
 };
 
 Image.defaultProps = {
@@ -19,4 +11,4 @@ Image.defaultProps = {
 	alt: 'image_404',
 };
 
-export default Image;
+export default memo(Image);

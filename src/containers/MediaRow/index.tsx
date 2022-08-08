@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { MainHeader, NormalHeader } from '../../components';
 import { propType } from './types';
 import './index.scss';

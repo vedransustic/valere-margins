@@ -48,7 +48,7 @@ const MovieDetails = () => {
 					<NormalHeader text={movie.title} />
 					<div className='pills'>
 						<div className='pill media_type'>
-							{movie.vote ? movie.vote / 10 : 'Neocijenjeno'}
+							{movie.vote ? `${movie.vote} / 10` : 'Neocijenjeno'}
 						</div>
 
 						<div className='lang pill'>{movie.language}</div>

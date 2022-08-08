@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
 import { propTypes } from './types';
@@ -17,4 +17,4 @@ Button.defaultProps = {
 	variant: 'normal',
 };
 
-export default Button;
+export default memo(Button);

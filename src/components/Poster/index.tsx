@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { StarEmpty, StarFull } from '../../assets/img';
@@ -46,4 +46,4 @@ const Poster: React.FC<any> = ({ movie }) => {
 	);
 };
 
-export default Poster;
+export default memo(Poster);

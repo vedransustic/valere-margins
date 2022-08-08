@@ -1,4 +1,4 @@
-import Navigation from './Navigation';
+import SearchBar from './SearchBar';
 import MediaRow from './MediaRow';
 
-export { Navigation, MediaRow };
+export { SearchBar, MediaRow };

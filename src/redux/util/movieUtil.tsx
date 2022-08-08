@@ -26,7 +26,7 @@ export const formatResponse = (movie: apiResponseType) => {
 		language: movie?.original_language,
 		genre: movie?.genre_ids,
 		adult: movie?.adult,
-		vote: movie?.vote,
+		vote: movie?.vote_average,
 		poster_path: movie?.poster_path,
 		release_date: movie?.release_date,
 		favorite: false,
