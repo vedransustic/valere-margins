@@ -8,3 +8,5 @@ VITE_API_KEY=5e99cb7093837e68f6f1e1ad765179da
 VITE_API_POSTER_URL=https://image.tmdb.org/t/p/original
 
 npm run dev i to je to...
+
+dockerizacija nije napravljena. Ne mogu nista i ako sam dobro shvatio to je do OS-a.
