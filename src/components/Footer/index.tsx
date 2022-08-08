@@ -6,13 +6,13 @@ import './index.scss';
 const Footer = () => {
 	return (
 		<footer>
-			<div className='footer-content'>
-				<h2 className='copyright'>
+			<div className='footer_content'>
+				<h2 className='footer_content__copyright'>
 					© 2022 MarginWatch - Vodič kroz platforme za streaming - -
 					All external content remains the property of the rightful
 					owner. Impresum · Politika privatnosti
 				</h2>
-				<div className='images'>
+				<div className='footer_content__images'>
 					<Image url={EU1} width={'110px'} height={'auto'} />
 					<Image url={EU2} width={'80px'} height={'auto'} />
 				</div>

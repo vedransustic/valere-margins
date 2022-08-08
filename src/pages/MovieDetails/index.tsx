@@ -41,21 +41,23 @@ const MovieDetails = () => {
 				/>
 				<div className='movie_info'>
 					<NormalHeader text={movie.title} />
-					<div className='pills'>
-						<div className='pill media_type'>
+					<div className='movie_info__pills'>
+						<div className='movie_info__pills__pill media_type'>
 							{movie.vote ? `${movie.vote} / 10` : 'Neocijenjeno'}
 						</div>
 
-						<div className='lang pill'>{movie.language}</div>
+						<div className='lang movie_info__pills__pill'>
+							{movie.language}
+						</div>
 
-						<div className='release_date pill'>
+						<div className='release_date movie_info__pills__pill'>
 							{movie.release_date}
 						</div>
 
 						{movie.adult && <div className='adult'>18+</div>}
 					</div>
 					<NormalText text={movie.overview} />
-					<div className='button-container'>
+					<div className='movie_info__button_container'>
 						{movie.favorite ? (
 							<div
 								className='favorite-button'

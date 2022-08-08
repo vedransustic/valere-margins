@@ -11,8 +11,8 @@
 		background-color: rgba(v.$light-blue, 0.2);
 		border: none;
 		outline: none;
-		border-top-left-radius: v.$button-radius;
-		border-bottom-left-radius: v.$button-radius;
+		border-top-left-radius: v.$item-radius;
+		border-bottom-left-radius: v.$item-radius;
 	}
 
 	img {
@@ -22,8 +22,8 @@
 		display: grid;
 		place-items: center;
 		background-color: rgba(v.$light-blue, 0.2);
-		border-top-right-radius: v.$button-radius;
-		border-bottom-right-radius: v.$button-radius;
+		border-top-right-radius: v.$item-radius;
+		border-bottom-right-radius: v.$item-radius;
 	}
 }
 
@@ -40,7 +40,7 @@
 	position: absolute;
 	top: 40px;
 	left: 0;
-	border-radius: v.$button-radius;
+	border-radius: v.$item-radius;
 	margin-top: 5px;
 	width: 300px;
 	height: auto;
@@ -102,8 +102,8 @@
 			background-color: rgba(v.$light-blue, 0.2);
 			border: none;
 			outline: none;
-			border-top-left-radius: v.$button-radius;
-			border-bottom-left-radius: v.$button-radius;
+			border-top-left-radius: v.$item-radius;
+			border-bottom-left-radius: v.$item-radius;
 		}
 
 		img {
@@ -113,8 +113,8 @@
 			display: grid;
 			place-items: center;
 			background-color: rgba(v.$light-blue, 0.2);
-			border-top-right-radius: v.$button-radius;
-			border-bottom-right-radius: v.$button-radius;
+			border-top-right-radius: v.$item-radius;
+			border-bottom-right-radius: v.$item-radius;
 		}
 	}
 

@@ -3,7 +3,8 @@
 .movieDetails {
 	min-height: v.$min-height;
 	.movie_image {
-		width: 100%;
+		width: auto;
+		max-height: 60vh;
 	}
 	.movie_info {
 		height: 40vh;
@@ -11,11 +12,11 @@
 		flex-direction: column;
 		justify-content: space-around;
 
-		.pills {
+		&__pills {
 			display: flex;
-			gap: 20px;
+			gap: 4px;
 
-			.pill {
+			&__pill {
 				padding: 0.25rem;
 				border-top-left-radius: 10px;
 				border-top-right-radius: 10px;
@@ -55,25 +56,77 @@
 				justify-content: center;
 			}
 		}
-	}
 
-	.button-container {
-		.favorite-button {
-			width: 300px;
-			display: grid;
-			place-items: center;
-			border-radius: v.$button-radius;
-			padding: 1rem;
-			background-color: v.$yellow;
-			font-size: x-large;
-			font-style: oblique;
-			cursor: pointer;
+		&__button_container {
+			.favorite-button {
+				width: 300px;
+				display: grid;
+				place-items: center;
+				border-radius: v.$item-radius;
+				padding: 1rem;
+				background-color: v.$yellow;
+				font-size: x-large;
+				font-style: oblique;
+				cursor: pointer;
+			}
 		}
 	}
 }
 
 @media screen and (min-width: 769px) and (max-width: 1281px) {
+	.movieDetails {
+		min-height: v.$min-height;
+		.movie_image {
+			width: auto;
+			max-height: 50vh;
+		}
+		.movie_info {
+			margin: 1vh auto;
+			padding: 4vh;
+			height: 40vh;
+			text-align: left;
+
+			&__button_container {
+				margin-bottom: 8vh;
+				display: flex;
+				margin: 2vh;
+				.favorite-button {
+					margin: auto;
+					display: grid;
+					width: 200px;
+					place-items: center;
+					border-radius: v.$item-radius;
+					padding: 1rem 0.25rem;
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 768px) {
+	.movieDetails {
+		min-height: v.$min-height;
+		.movie_image {
+			width: auto;
+			max-height: 50vh;
+		}
+		.movie_info {
+			margin: 5vh auto;
+			height: 40vh;
+
+			&__button_container {
+				margin-bottom: 8vh;
+				display: flex;
+				margin: 2vh;
+				.favorite-button {
+					margin: auto;
+					display: grid;
+					width: 200px;
+					place-items: center;
+					border-radius: v.$item-radius;
+					padding: 0.5rem 0.1rem;
+				}
+			}
+		}
+	}
 }

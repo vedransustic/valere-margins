@@ -27,8 +27,8 @@
 			font-size: larger;
 			border: 1px solid v.$black;
 			outline: none;
-			border-top-left-radius: v.$button-radius;
-			border-bottom-left-radius: v.$button-radius;
+			border-top-left-radius: v.$item-radius;
+			border-bottom-left-radius: v.$item-radius;
 			background-color: rgba(v.$black, 0.75);
 			color: rgba(v.$white, 0.75);
 			-webkit-appearance: none;
@@ -37,8 +37,8 @@
 			height: inherit;
 			width: 40px;
 			background-color: rgba(v.$black, 0.75);
-			border-top-right-radius: v.$button-radius;
-			border-bottom-right-radius: v.$button-radius;
+			border-top-right-radius: v.$item-radius;
+			border-bottom-right-radius: v.$item-radius;
 		}
 	}
 }

@@ -3,7 +3,7 @@ import './index.scss';
 import { propType } from './types';
 
 const NormalText: React.FC<propType> = ({ text }) => {
-	return <p className='normal__text'>{text}</p>;
+	return <p className='normal_text'>{text}</p>;
 };
 
 export default NormalText;

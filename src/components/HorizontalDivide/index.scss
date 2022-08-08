@@ -9,7 +9,10 @@
 	&__content__left,
 	&__content__right {
 		flex: 1;
-		padding: 2rem 8rem;
+		height: 70vh;
+		display: grid;
+		place-items: center;
+		padding: 8rem;
 	}
 }
 
