@@ -7,21 +7,16 @@ import {
 	NormalHeader,
 	NormalText,
 } from '../../components';
-import {
-	fetchAsyncMovieDetail,
-	getAllMovies,
-	getSelectedMovie,
-	removeMovieDetail,
-	toggleFavorites,
-} from '../../redux/slice/movieSlice';
+import { toggleFavorites } from '../../redux/slice/movieSlice';
+import { loadFromLocalStorage } from '../../utils';
 
 import './index.scss';
 
 const MovieDetails = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const movies = useSelector(getAllMovies);
-	const movie = movies.find((x) => x.id === parseInt(id));
+	const movies: any = loadFromLocalStorage();
+	const movie = movies.find((x: { id: number }) => x.id === Number(id));
 
 	if (!movie)
 		return (

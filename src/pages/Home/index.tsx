@@ -30,21 +30,25 @@ import {
 	availableCountries,
 } from '../../constants';
 import './index.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getAllMovies } from '../../redux/slice/movieSlice';
+import { addToLocalStorage } from '../../redux/slice/movieSlice';
+import { useEffect } from 'react';
+import { loadFromLocalStorage } from '../../utils';
+import { apiDataType } from '../../types';
 
 const Home = () => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const movies: any = useSelector<any>(getAllMovies);
+	const movies: Array<apiDataType> = loadFromLocalStorage();
+
+	useEffect(() => {
+		dispatch(addToLocalStorage());
+	}, []);
+
 	const moviesToDisplay = [...movies]
 		.sort(() => 0.5 - Math.random())
 		.slice(0, 10);
-	if (!movies.Response) {
-		<div>
-			<MainHeader text={movies.Error} />
-		</div>;
-	}
 
 	return (
 		<div className='home_container'>

@@ -6,6 +6,7 @@ import './index.scss';
 import Poster from '../../components/Poster';
 import { getAllMovies } from '../../redux/slice/movieSlice';
 import { apiDataType } from '../../types';
+import { loadFromLocalStorage } from '../../utils';
 
 const getName = (genre: number, movies: Array<apiDataType>) => {
 	switch (genre) {
@@ -56,8 +57,7 @@ const getName = (genre: number, movies: Array<apiDataType>) => {
 };
 
 const MediaRow: React.FC<propType> = ({ genre }) => {
-	const moviesRef = useRef<HTMLDivElement>(document.createElement('div'));
-	const movies = useSelector(getAllMovies);
+	const movies = loadFromLocalStorage();
 	const moviesToDisplay = getName(genre, movies);
 
 	if (!moviesToDisplay)
@@ -75,7 +75,7 @@ const MediaRow: React.FC<propType> = ({ genre }) => {
 					className='shadow-scroll-x'
 					style={{ maxWidth: '400px' }}
 				/>
-				<div className='media__row__movies' ref={moviesRef}>
+				<div className='media__row__movies'>
 					{moviesToDisplay &&
 						moviesToDisplay.data.map((movie: any) => (
 							<Poster movie={movie} key={movie.id} />
