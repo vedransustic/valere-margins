@@ -4,7 +4,6 @@ import { MainHeader, NormalHeader } from '../../components';
 import { propType } from './types';
 import './index.scss';
 import Poster from '../../components/Poster';
-import { getAllMovies } from '../../redux/slice/movieSlice';
 import { apiDataType } from '../../types';
 import { loadFromLocalStorage } from '../../utils';
 
@@ -57,15 +56,17 @@ const getName = (genre: number, movies: Array<apiDataType>) => {
 };
 
 const MediaRow: React.FC<propType> = ({ genre }) => {
-	const movies = loadFromLocalStorage();
+	const { loading, movies, error }: any = loadFromLocalStorage();
 	const moviesToDisplay = getName(genre, movies);
 
-	if (!moviesToDisplay)
+	if (loading)
 		return (
 			<div className='loading'>
 				<MainHeader text='Loading...' />
 			</div>
 		);
+
+	if (error) return <div className='error'>{JSON.stringify(error)}</div>;
 
 	return (
 		<div className='media'>

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -15,19 +14,24 @@ import './index.scss';
 const MovieDetails = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const movies: any = loadFromLocalStorage();
+	const { loading, movies, error }: any = loadFromLocalStorage();
 	const movie = movies.find((x: { id: number }) => x.id === Number(id));
 
-	if (!movie)
+	const handleClick = (id: number) => {
+		dispatch(toggleFavorites(id));
+	};
+
+	if (loading) {
 		return (
 			<div className='loading'>
 				<MainHeader text='Loading...' />
 			</div>
 		);
+	}
 
-	const handleClick = (id: number) => {
-		dispatch(toggleFavorites(id));
-	};
+	if (error) {
+		if (error) return <MainHeader text={error} />;
+	}
 
 	return (
 		<div className='movieDetails'>

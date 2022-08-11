@@ -1,14 +1,13 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getAllMovies } from '../../redux/slice/movieSlice';
-import { Image } from '../../components';
+import { Image, MainHeader } from '../../components';
 import { SearchImg } from '../../assets/img';
 import './index.scss';
+import { loadFromLocalStorage } from '../../utils';
 
 const SearchBar = () => {
 	const navigate = useNavigate();
-	const movies: any = useSelector<any>(getAllMovies);
+	const { loading, movies, error }: any = loadFromLocalStorage();
 	const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
 	const [inputText, setInputText] = useState('');
 
@@ -19,6 +18,18 @@ const SearchBar = () => {
 		});
 		setMoviesToDisplay(result);
 	};
+
+	if (loading) {
+		return (
+			<div className='loading'>
+				<MainHeader text='Loading...' />
+			</div>
+		);
+	}
+
+	if (error) {
+		return <h2>{JSON.stringify(error)}</h2>;
+	}
 
 	return (
 		<>

@@ -30,25 +30,28 @@ import {
 	availableCountries,
 } from '../../constants';
 import './index.scss';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToLocalStorage } from '../../redux/slice/movieSlice';
-import { useEffect } from 'react';
 import { loadFromLocalStorage } from '../../utils';
-import { apiDataType } from '../../types';
 
 const Home = () => {
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const movies: Array<apiDataType> = loadFromLocalStorage();
-
-	useEffect(() => {
-		dispatch(addToLocalStorage());
-	}, []);
+	const { loading, movies, error }: any = loadFromLocalStorage();
 
 	const moviesToDisplay = [...movies]
 		.sort(() => 0.5 - Math.random())
 		.slice(0, 10);
+
+	if (loading) {
+		return (
+			<div className='loading'>
+				<MainHeader text='Loading...' />
+			</div>
+		);
+	}
+
+	if (error) {
+		if (error) return <MainHeader text={error} />;
+	}
 
 	return (
 		<div className='home_container'>

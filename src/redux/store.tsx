@@ -9,4 +9,8 @@ const store = configureStore({
 		}),
 });
 
+store.subscribe(() => {
+	localStorage.setItem('persistantState', JSON.stringify(store.getState()));
+});
+
 export default store;

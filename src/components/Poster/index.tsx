@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { StarEmpty, StarFull } from '../../assets/img';
@@ -9,14 +9,16 @@ import './index.scss';
 const Poster: React.FC<any> = ({ movie }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const [isFav, setFav] = useState(movie.favorite);
 
 	const handleFavorite = (id: number) => {
+		setFav((isFav: boolean) => !isFav);
 		dispatch(toggleFavorites(id));
 	};
 
 	return (
 		<div className='poster'>
-			{movie.favorite ? (
+			{isFav ? (
 				<img
 					src={StarFull}
 					alt='favorite'

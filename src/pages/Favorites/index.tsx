@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { SelectIcon } from '../../assets/img';
-import { Poster } from '../../components';
+import { MainHeader, Poster } from '../../components';
 import { getAllMovies } from '../../redux/slice/movieSlice';
+import { loadFromLocalStorage } from '../../utils';
 import './index.scss';
 
 const Favorites = () => {
-	const movies: any = useSelector<any>(getAllMovies);
+	const { loading, movies, error }: any = loadFromLocalStorage();
 
-	useEffect(() => {
-		const moviesToDisplay = movies.filter(
-			(x: { favorite: boolean }) => x.favorite === true
-		);
-		setFilterdData(moviesToDisplay);
-	}, [movies]);
-
-	const [filterdData, setFilterdData] = useState([]);
+	const data = movies.filter(
+		(x: { favorite: boolean }) => x.favorite === true
+	);
+	const [filterdData, setFilterdData] = useState(data);
 
 	const handleSort = (option: string) => {
 		switch (option) {
@@ -43,6 +40,15 @@ const Favorites = () => {
 				break;
 		}
 	};
+
+	if (loading)
+		return (
+			<div className='loading'>
+				<MainHeader text='Loading...' />
+			</div>
+		);
+
+	if (error) return <MainHeader text={error} />;
 
 	return (
 		<div className='favorite__container'>

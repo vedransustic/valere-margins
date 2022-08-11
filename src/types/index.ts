@@ -33,8 +33,9 @@ export type apiResponseType = {
 };
 
 export type stateType = {
+	loading: boolean;
 	movies: Array<apiDataType>;
-	selectedMovie: apiDataType;
+	error: any;
 };
 
 export type AppDispatch = typeof store.dispatch;
