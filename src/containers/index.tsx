@@ -1,4 +1,5 @@
 import SearchBar from './SearchBar';
 import MediaRow from './MediaRow';
+import Poster from './Poster';
 
-export { SearchBar, MediaRow };
+export { SearchBar, MediaRow, Poster };

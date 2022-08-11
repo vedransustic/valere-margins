@@ -1,15 +1,15 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { StarEmpty, StarFull } from '../../assets/img';
-import { NormalText } from '..';
+import { NormalText } from '../../components';
 import { toggleFavorites } from '../../redux/slice/movieSlice';
 import './index.scss';
 
 const Poster: React.FC<any> = ({ movie }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const [isFav, setFav] = useState(movie.favorite);
+	const [isFav, setFav] = useState<boolean>(movie.favorite);
 
 	const handleFavorite = (id: number) => {
 		setFav((isFav: boolean) => !isFav);

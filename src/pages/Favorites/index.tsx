@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { SelectIcon } from '../../assets/img';
-import { MainHeader, Poster } from '../../components';
-import { getAllMovies } from '../../redux/slice/movieSlice';
+import { MainHeader } from '../../components';
+import { Poster } from '../../containers';
 import { loadFromLocalStorage } from '../../utils';
 import './index.scss';
 

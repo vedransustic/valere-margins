@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -16,8 +17,10 @@ const MovieDetails = () => {
 	const dispatch = useDispatch();
 	const { loading, movies, error }: any = loadFromLocalStorage();
 	const movie = movies.find((x: { id: number }) => x.id === Number(id));
+	const [isFav, setFav] = useState<boolean>(movie.favorite);
 
 	const handleClick = (id: number) => {
+		setFav((isFav) => !isFav);
 		dispatch(toggleFavorites(id));
 	};
 
@@ -62,7 +65,7 @@ const MovieDetails = () => {
 					</div>
 					<NormalText text={movie.overview} />
 					<div className='movie_info__button_container'>
-						{movie.favorite ? (
+						{isFav ? (
 							<div
 								className='favorite-button'
 								onClick={() => handleClick(movie.id)}>

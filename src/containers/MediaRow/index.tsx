@@ -1,9 +1,7 @@
-import { useSelector } from 'react-redux';
-import { memo, useEffect, useRef } from 'react';
 import { MainHeader, NormalHeader } from '../../components';
 import { propType } from './types';
 import './index.scss';
-import Poster from '../../components/Poster';
+import { Poster } from '..';
 import { apiDataType } from '../../types';
 import { loadFromLocalStorage } from '../../utils';
 
